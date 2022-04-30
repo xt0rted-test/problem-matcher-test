@@ -1,0 +1,15 @@
+.container {
+    background: yellow;
+    color: #000;
+    border-color: purple;
+}
+
+.header {
+    height: 100%;
+    width: 100%;
+}
+
+.footer {
+    background: red;
+    color: yellow;
+}

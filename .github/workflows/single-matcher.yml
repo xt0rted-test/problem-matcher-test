@@ -1,0 +1,30 @@
+on: push
+
+jobs:
+  with-color:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: echo "::add-matcher::${{ github.workspace }}/matchers/mixed.json"
+
+      - run: npm ci
+
+      - run: npm test
+        env:
+          FORCE_COLOR: 3
+
+  without-color:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: echo "::add-matcher::${{ github.workspace }}/matchers/mixed.json"
+
+      - run: npm ci
+
+      - run: npm test
+        env:
+          NO_COLOR: 1
