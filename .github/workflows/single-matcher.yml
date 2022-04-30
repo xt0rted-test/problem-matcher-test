@@ -2,7 +2,15 @@ on: push
 
 jobs:
   with-color:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -16,7 +24,15 @@ jobs:
           FORCE_COLOR: 3
 
   without-color:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
 
     steps:
       - uses: actions/checkout@v3
